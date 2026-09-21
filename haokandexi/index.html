@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好看的喜剧电影 - 爆笑佳作推荐与观影指南</title>
+    <meta name="description" content="本站致力于为影迷提供最新、最全的好看的喜剧电影推荐。涵盖欧美喜剧、国产幽默、经典无厘头及冷门高分喜剧，提供在线观看链接、剧情简介及评分分析，助您轻松找到适合放松心情的爆笑佳作。">
+    <meta name="keywords" content="好看的喜剧电影, 爆笑电影, 喜剧推荐, 欧美喜剧, 国产喜剧, 经典喜剧片">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #feca57;
+            --accent-color: #48dbfb;
+            --dark-bg: #1e272e;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-light: #747d8c;
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --container-width: 1200px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #f1f2f6;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部设计 */
+        header {
+            background: var(--dark-bg);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--secondary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #1e272e 0%, #2f3640 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,107,0.1) 0%, transparent 60%);
+            animation: pulse 10s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* 筛选导航 */
+        .filter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* 电影网格布局 */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .movie-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background-color: #dfe4ea;
+            position: relative;
+        }
+
+        .card-rating {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--secondary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 1rem;
+        }
+
+        .btn-watch {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-watch:hover {
+            text-decoration: underline;
+        }
+
+        /* 专题/经典区域 */
+        .feature-section {
+            background: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .feature-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-info p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li::before {
+            content: '✔';
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* FAQ 区域 */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 200px;
+        }
+
+        /* 页脚 */
+        footer {
+            background: var(--dark-bg);
+            color: rgba(255,255,255,0.6);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>🎬</span> <span>笑不停影院</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">热门推荐</a>
+                <a href="#">分类浏览</a>
+                <a href="#">排行榜</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 区域 -->
+        <section class="hero">
+            <div class="container">
+                <h1>寻找最好看的喜剧电影</h1>
+                <p>生活需要欢笑。我们为您精选全球高分喜剧，从无厘头神作到温馨治愈系，为您带来纯粹的快乐体验。</p>
+                <div class="hero-tags">
+                    <span class="tag">🇺🇸 欧美喜剧</span>
+                    <span class="tag">🇨🇳 国产幽默</span>
+                    <span class="tag">🇯🇵 日韩爆笑</span>
+                    <span class="tag">🎬 经典老片</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 筛选栏 -->
+            <div class="filter-nav">
+                <button class="filter-btn active">综合推荐</button>
+                <button class="filter-btn">最新上映</button>
+                <button class="filter-btn">豆瓣高分</button>
+                <button class="filter-btn">冷门佳片</button>
+                <button class="filter-btn">家庭合家欢</button>
+            </div>
+
+            <!-- 热门推荐网格 -->
+            <h2 class="section-title">🔥 本周热门推荐</h2>
+            <section class="movie-grid">
+                <!-- 电影卡片 1 -->
+                <article class="movie-card">
+                    <div class="card-image" style="background: url('https://picsum.photos/seed/comedy1/400/600') center/cover no-repeat;">
+                        <span class="card-rating">9.2</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">欧美 / 冒险 / 喜剧</span>
+                        <h3 class="card-title">荒野大镖客：终极版</h3>
+                        <p class="card-desc">一场充满黑色幽默的西部冒险，主角为了寻找宝藏，踏上了一条充满误会与爆笑的旅程。</p>
+                        <div class="card-footer">
+                            <span style="font-size:0.8rem; color:#999;">2023</span>
+                            <a href="#" class="btn-watch">立即观看 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 电影卡片 2 -->
+                <article class="movie-card">
+                    <div class="card-image" style="background: url('https://picsum.photos/seed/comedy2/400/600') center/cover no-repeat;">
+                        <span class="card-rating">8.8</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">国产 / 爱情 / 喜剧</span>
+                        <h3 class="card-title">错位时空的恋人</h3>
+                        <p class="card-desc">两个性格迥异的人在错误的时空相遇，发生了一系列啼笑皆非却又令人感动的误会。</p>
+                        <div class="card-footer">
+                            <span style="font-size:0.8rem; color:#999;">2022</span>
+                            <a href="#" class="btn-watch">立即观看 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 电影卡片 3 -->
+                <article class="movie-card">
+                    <div class="card-image" style="background: url('https://picsum.photos/seed/comedy3/400/600') center/cover no-repeat;">
+                        <span class="card-rating">9.5</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">日本 / 悬疑 / 喜剧</span>
+                        <h3 class="card-title">名侦探的笨拙推理</h3>
+                        <p class="card-desc">名侦探试图破案却总是因为过度脑补而制造出新的案件，笑料百出的推理片。</p>
+                        <div class="card-footer">
+                            <span style="font-size:0.8rem; color:#999;">2021</span>
+                            <a href="#" class="btn-watch">立即观看 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 电影卡片 4 -->
+                <article class="movie-card">
+                    <div class="card-image" style="background: url('https://picsum.photos/seed/comedy4/400/600') center/cover no-repeat;">
+                        <span class="card-rating">8.5</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">法国 / 剧情 / 喜剧</span>
+                        <h3 class="card-title">巴黎左岸的午后</h3>
+                        <p class="card-desc">在充满艺术气息的左岸，几个性格古怪的画家为了争夺展览机会上演了一出闹剧。</p>
+                        <div class="card-footer">
+                            <span style="font-size:0.8rem; color:#999;">2019</span>
+                            <a href="#" class="btn-watch">立即观看 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 专题介绍 -->
+            <section class="feature-section">
+                <div class="container feature-grid">
+                    <div class="feature-image">
+                        <img src="https://picsum.photos/seed/comedyfeature/600/400" alt="喜剧电影海报" style="width:100%; border-radius:12px; box-shadow:var(--shadow);">
+                    </div>
+                    <div class="feature-info">
+                        <h3>为什么我们需要喜剧电影？</h3>
+                        <p>喜剧不仅是消遣的工具，更是缓解压力、调节情绪的良药。在快节奏的现代生活中，一部好的喜剧电影能让我们暂时忘却烦恼，获得心灵的放松。</p>
+                        <ul class="feature-list">
+                            <li>释放工作与生活的双重压力</li>
+                            <li>通过幽默视角看懂社会百态</li>
+                            <li>家庭聚会与朋友聚会的不二之选</li>
+                            <li>提升心情，保持积极乐观的心态</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 更多分类 -->
+            <h2 class="section-title">📂 分类浏览</h2>
+            <section class="movie-grid">
+                <article class="movie-card">
+                    <div class="card-image" style="background: url('https://picsum.photos/seed/old/400/600') center/cover no-repeat;">
+                        <span class="card-rating">9.0</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">经典 / 黑色幽默</span>
+                        <h3 class="card-title">上帝也疯狂</h3>
+                        <p class="card-desc">经典的反乌托邦喜剧，讲述部落生活与现代文明的碰撞。</p>
+                        <div class="card-footer">
+                            <span style="font-size:0.8rem; color:#999;">1980</span>
+                            <a href="#" class="btn-watch">立即观看 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="movie-card">
+                    <div class="card-image" style="background: url('https://picsum.photos/seed/kids/400/600') center/cover no-repeat;">
+                        <span class="card-rating">8.7</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">动画 / 奇幻 / 喜剧</span>
+                        <h3 class="card-title">疯狂动物城：大电影</h3>
+                        <p class="card-desc">色彩斑斓的动物世界，充满智慧与趣味的冒险故事。</p>
+                        <div class="card-footer">
+                            <span style="font-size:0.8rem; color:#999;">2016</span>
+                            <a href="#" class="btn-watch">立即观看 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="movie-card">
+                    <div class="card-image" style="background: url('https://picsum.photos/seed/sitcom/400/600') center/cover no-repeat;">
+                        <span class="card-rating">8.9</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">美剧 / 情景喜剧</span>
+                        <h3 class="card-title">老友记：重聚</h3>
+                        <p class="card-desc">六位好友在纽约的欢笑与泪水，治愈系神作。</p>
+                        <div class="card-footer">
+                            <span style="font-size:0.8rem; color:#999;">2004</span>
+                            <a href="#" class="btn-watch">立即观看 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="movie-card">
+                    <div class="card-image" style="background: url('https://picsum.photos/seed/indie/400/600') center/cover no-repeat;">
+                        <span class="card-rating">8.3</span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">独立 / 另类喜剧</span>
+                        <h3 class="card-title">办公室风云</h3>
+                        <p class="card-desc">关于职场生存的荒诞纪录片式喜剧，真实又好笑。</p>
+                        <div class="card-footer">
+                            <span style="font-size:0.8rem; color:#999;">2014</span>
+                            <a href="#" class="btn-watch">立即观看 &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 常见问题 -->
+            <h2 class="section-title">❓ 观影指南与常见问题</h2>
+            <section class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">哪里可以看最新的好看的喜剧电影？</div>
+                    <div class="faq-answer">
+                        <p>本站汇集了各大流媒体平台（如Netflix, 腾讯视频, 优酷）及正版引进的经典喜剧资源。您可以通过分类标签快速找到最新上映或高分老片。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">适合家庭观看的喜剧电影有哪些？</div>
+                    <div class="faq-answer">
+                        <p>我们特别推荐“家庭合家欢”分类，其中包括《疯狂动物城》、《神偷奶爸》系列、《飞屋环游记》等适合全年龄段观看的温馨喜剧。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何判断一部喜剧是否适合我？</div>
+                    <div class="faq-answer">
+                        <p>除了查看评分，建议关注电影的“类型”标签（如：动作喜剧、情景喜剧、黑色幽默）。如果您喜欢轻松欢快的氛围，可以选择“浪漫喜剧”或“合家欢”；如果您追求极致的脑洞，可以尝试“无厘头”或“荒诞喜剧”。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">版权声明</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系方式</a>
+            </div>
+            <p class="copyright">© 2023 笑不停影院 - 分享全球优质喜剧电影资源</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项状态
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 筛选按钮交互逻辑
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    // 这里可以添加实际的筛选逻辑，例如重新渲染电影列表
+                    // 为演示效果，仅做样式切换
+                });
+            });
+        });
+    </script>
+</body>
+                      </html>
